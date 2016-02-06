@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    "react"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "amd": true
+  },
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "strict": [2, "never"],
+    "indent": [2, 2]
+  }
+}
