@@ -51,6 +51,8 @@ var Docs = React.createClass({
         return 'Invalid WORKDIR';
       case 'invalid_format':
         return 'Invalid Argument Format';
+      case 'apt-get_missing_rm':
+        return 'apt-get update with matching cache rm';
       default:
         return 'ERROR';
     }
@@ -102,6 +104,8 @@ var Docs = React.createClass({
         return 'Using a WORKDIR parameter that has spaces should be escaped.';
       case 'invalid_format':
         return 'The arguments to this command are invalid';
+      case 'apt-get_missing_rm':
+        return 'Use of apt-get update should be paired with rm -rf /var/lib/apt/lists/* in the same layer.';
       default:
         return 'The documentation for this error was not found.';
     }
