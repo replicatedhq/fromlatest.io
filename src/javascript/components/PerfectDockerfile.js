@@ -1,13 +1,13 @@
 var React = require('react');
 
-var turtle = require('assets/turtle.png');
+var thumbsUp = require('assets/thumbs-up.png');
 
 var PerfectDockerfile = React.createClass({
   render: function() {
     return (
       <div className="row">
         <div className="col-sm-12 main" style={{textAlign: 'center', paddingTop: '30px'}}>
-          <img src={turtle} />
+          <img src={thumbsUp} />
         </div>
       </div>
     );
