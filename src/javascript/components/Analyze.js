@@ -29,12 +29,14 @@ var Analyze = React.createClass({
       eventLabel: 'Dockerfile analysis start'
     });
 
+    var analysis = dockerfilelint.run(content);
 
+    var resultLabel = analysis.length === 0 ? 'no problems detected' : 'problems detected';
     window.ga('send', {
       hitType: 'event',
       eventCategory: 'Analysis',
       eventAction: analysis.length === 0 ? 'no-problems' : 'problems',
-      eventLabel: 'Dockerfile analysis end with ' + (analysis.length === 0 ? 'no problems detected' : 'problems detected')
+      eventLabel: 'Dockerfile analysis end with ' + resultLabel
     });
 
     this.setState({analysis: analysis});
