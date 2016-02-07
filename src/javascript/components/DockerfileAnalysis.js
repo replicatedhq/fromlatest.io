@@ -12,28 +12,23 @@ var DockerfileAnalysis = React.createClass({
     var nodes = [];
     this.props.messages.forEach(function(msg) {
       var annotation = (
-        <tr>
-          <td>{msg.line}</td>
-          <td>{msg.name}</td>
-          <td>{msg.message}</td>
-        </tr>
+        <div key={msg.line + msg.name + msg.message}>
+          <span style={{fontSize: '16px'}}>
+            <strong>Line {msg.line}</strong>
+          </span>
+          <span>
+            {' '}{msg.message}
+          </span>
+        </div>
       );
       nodes.push(annotation);
     });
 
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Line</th>
-            <th>Problem</th>
-            <th>Detail</th>
-          </tr>
-        </thead>
-        <tbody>
-          {nodes}
-        </tbody>
-      </table>
+      <div>
+        <h3>Suggestions</h3>
+        {nodes}
+      </div>
     );
   }
 });
