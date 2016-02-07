@@ -36,7 +36,7 @@ var Main = React.createClass({
 var Routes = (
   <Route path="/" handler={Main}>
     <Route name="main" path="/" handler={Layout}>
-      <Route name="analyze" path="app" handler={Analyze} />
+      <Route name="analyze" path="/" handler={Analyze} />
     </Route>
     <DefaultRoute handler={Layout} />
     <NotFoundRoute handler={NotFound} />

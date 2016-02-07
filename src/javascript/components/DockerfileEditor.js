@@ -1,5 +1,6 @@
 var React = require('react');
 var AceEditor = require('react-ace-wrapper');
+var pubsub = require('pubsub-js');
 
 require('brace/mode/dockerfile');
 require('brace/theme/tomorrow');
@@ -10,6 +11,18 @@ var DockerfileEditor = React.createClass({
     return {
       initialValue: null
     };
+  },
+
+  componentDidMount: function() {
+    pubsub.subscribe('set.dockerfile', this.onSetDockerfile);
+  },
+
+  componentWillUnmount: function() {
+    pubsub.unsubscribe('set.dockerfile', this.onSetDockerfile);
+  },
+
+  onSetDockerfile: function(msg, content) {
+    this.refs.editor.editor.setValue(content, -1);
   },
 
   componentDidUpdate: function() {

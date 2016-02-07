@@ -1,7 +1,9 @@
 var React = require('react');
+var Router = require('react-router');
+
+var RouteHandler = Router.RouteHandler;
 
 var Navbar = require('components/Navbar');
-var Analyze = require('components/Analyze');
 
 var Layout = React.createClass({
   render: function() {
@@ -9,7 +11,7 @@ var Layout = React.createClass({
       <div>
         <Navbar />
         <div className="container-fluid pad-navbar">
-          <Analyze/>
+          <RouteHandler />
         </div>
       </div>
     );
