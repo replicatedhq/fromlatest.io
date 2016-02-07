@@ -34,7 +34,7 @@ var Analyze = React.createClass({
       hitType: 'event',
       eventCategory: 'Analysis',
       eventAction: analysis.length === 0 ? 'no-problems' : 'problems',
-      eventLabel: 'Dockerfile analysis end with ' ? analysis.length === 0 ? 'no problems detected' : 'problems detected'
+      eventLabel: 'Dockerfile analysis end with ' + (analysis.length === 0 ? 'no problems detected' : 'problems detected')
     });
 
     this.setState({analysis: analysis});
