@@ -10,7 +10,8 @@ var dockerfilelint = require('dockerfilelint');
 var Analyze = React.createClass({
   getInitialState: function() {
     return {
-      content: ''
+      content: '',
+      analysis: []
     };
   },
 

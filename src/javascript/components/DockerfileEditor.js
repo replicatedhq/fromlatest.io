@@ -16,6 +16,7 @@ var DockerfileEditor = React.createClass({
     if (this.refs.editor) {
       this.refs.editor.editor.setOption('useSoftTabs', true);
       this.refs.editor.editor.setOption('tabSize', 2);
+      this.refs.editor.editor.setOption('cursorStyle', 'smooth');
     }
   },
 
