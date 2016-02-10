@@ -1,53 +1,39 @@
 var React = require('react');
-var ReactBootstrap = require('react-bootstrap');
+var _ = require('lodash');
 
-var Button = ReactBootstrap.Button;
+var AnalysisItem = require('components/AnalysisItem');
 
 var DockerfileAnalysis = React.createClass({
   getDefaultProps: function() {
     return {
-      messages: []
+      items: []
     };
   },
 
-  onShowDocs: function(docName) {
-    if (this.props.onShowDocs) {
-      this.props.onShowDocs(docName);
-    }
+  getInitialState: function() {
+    return {
+      expanded: []
+    };
+  },
+
+  onItemExpand: function(item) {
+    this.state.expanded.push(item);
+    this.setState(this.state);
+  },
+
+  onItemCollapse: function(item) {
+    var expanded = this.state.expanded;
+    expanded = _.without(expanded, item);
+    this.setState({expanded: expanded});
   },
 
   render: function() {
     var nodes = [];
-    this.props.messages.forEach(function(msg) {
-      var annotation = (
-        <div key={msg.name + msg.line} className="container">
-          <div className="row">
-            <div className="col-xs-6">
-              <ul className="event-list">
-                <li>
-                  <div className="title">
-                    <span>Optimization</span>
-                  </div>
-                  <div className="info">
-                    <div className="row">
-                      <div className="col-xs-10">
-                        <h2 className="title">Line {msg.line}</h2>
-                        <p className="desc">{msg.message}</p>
-                      </div>
-                      <div className="col-xs-2" style={{marginTop: '12px', textAlign: 'right'}}>
-                        <Button bsStyle="link" style={{fontSize: '24px', color: '#aaa'}} onClick={this.onShowDocs.bind(this, msg.name)}>
-                          <i className="fa fa-chevron-right" />
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    this.props.items.forEach(function(item) {
+      var node = (
+        <AnalysisItem expanded={_.includes(this.state.expanded, item)} key={item.line + item.title} item={item} onExpand={this.onItemExpand} onCollapse={this.onItemCollapse}/>
       );
-      nodes.push(annotation);
+      nodes.push(node);
     }.bind(this));
 
     return (

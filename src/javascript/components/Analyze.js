@@ -5,7 +5,6 @@ var DockerfileEditor = require('components/DockerfileEditor');
 var EmptyDockerfile = require('components/EmptyDockerfile');
 var PerfectDockerfile = require('components/PerfectDockerfile');
 var DockerfileAnalysis = require('components/DockerfileAnalysis');
-var Docs = require('components/Docs');
 
 var dockerfilelint = require('dockerfilelint');
 
@@ -14,7 +13,7 @@ var Analyze = React.createClass({
     return {
       content: '',
       analysis: [],
-      docName: ''
+      item: null
     };
   },
 
@@ -30,7 +29,6 @@ var Analyze = React.createClass({
     });
 
     var analysis = dockerfilelint.run(content);
-
     var resultLabel = analysis.length === 0 ? 'no problems detected' : 'problems detected';
     window.ga('send', {
       hitType: 'event',
@@ -42,16 +40,8 @@ var Analyze = React.createClass({
     this.setState({analysis: analysis});
   },
 
-  onShowDocs: function(docName) {
-    this.setState({docName: docName});
-  },
-
-  onCloseDocs: function() {
-    this.setState({docName: ''});
-  },
-
   render: function() {
-    var editorClasses = classNames('col-xs-6', {hidden: this.state.docName !== ''});
+    var editorClasses = classNames('col-xs-6', {hidden: this.state.item});
     var editor = (
       <div>
         <h3>Paste your Dockerfile here</h3>
@@ -61,7 +51,7 @@ var Analyze = React.createClass({
 
     var analysisClasses = classNames('col-xs-6');
     var analysisStyles;
-    if (this.state.docName === '') {
+    if (this.state.item) {
       analysisStyles = {paddingLeft: '20px', marginTop: '40px', paddingRight: '40px'};
     } else {
       analysisStyles = {paddingLeft: '40px', marginTop: '40px', paddingRight: '20px'};
@@ -73,14 +63,9 @@ var Analyze = React.createClass({
       if (this.state.analysis.length === 0) {
         analysis = <PerfectDockerfile />;
       } else {
-        analysis = <DockerfileAnalysis dockerfile={this.state.content} messages={this.state.analysis} onShowDocs={this.onShowDocs}/>;
+        analysis = <DockerfileAnalysis dockerfile={this.state.content} items={this.state.analysis} onShowDocs={this.onShowDocs}/>;
       }
     }
-
-    var docsClasses = classNames('col-xs-6', {hidden: this.state.docName === ''});
-    var docs = (
-      <Docs name={this.state.docName} onClose={this.onCloseDocs}/>
-    );
 
     return (
       <div className="row">
@@ -91,9 +76,6 @@ var Analyze = React.createClass({
             </div>
             <div className={analysisClasses} style={analysisStyles}>
               {analysis}
-            </div>
-            <div className={docsClasses} style={{paddingLeft: '20px', paddingRight: '40px', marginTop: '40px'}}>
-              {docs}
             </div>
           </div>
         </div>
