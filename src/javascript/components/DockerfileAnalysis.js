@@ -28,8 +28,8 @@ var DockerfileAnalysis = React.createClass({
   },
 
   onItemExpand: function(item) {
-    this.state.expanded.push(item);
-    this.setState(this.state);
+    this.state.expandedItems.push(item);
+    this.setState({expandedItems: this.state.expandedItems});
   },
 
   onItemCollapse: function(item) {
