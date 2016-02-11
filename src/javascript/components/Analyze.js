@@ -1,17 +1,30 @@
 var React = require('react');
-var classNames = require('classnames');
 
 var DockerfileEditor = require('components/DockerfileEditor');
-var EmptyDockerfile = require('components/EmptyDockerfile');
-var PerfectDockerfile = require('components/PerfectDockerfile');
 var DockerfileAnalysis = require('components/DockerfileAnalysis');
 
 var dockerfilelint = require('dockerfilelint');
 
 var Analyze = React.createClass({
   getInitialState: function() {
+    /* eslint-disable no-multi-str */
+    var dockerfile = '# This is a sample Dockerfile with a couple of problems.\n\
+# Paste your Dockerfile here.\n\n\
+FROM ubuntu:latest\n\
+RUN apt-get update && \\\n\
+    apt-get install -y make nasm && \\\n\
+    rm -rf /var/lib/apt/lists/*\n\
+\n\
+WORKDIR /usr/src/hello\n\
+copy . /usr/src/hello\n\
+\n\
+RUN make clean hello test\n\
+\n\
+CMD ["./hello"]';
+    /* eslint-enable */
+
     return {
-      content: '',
+      content: dockerfile,
       analysis: [],
       item: null
     };
@@ -41,41 +54,15 @@ var Analyze = React.createClass({
   },
 
   render: function() {
-    var editorClasses = classNames('col-xs-6', {hidden: this.state.item});
-    var editor = (
-      <div>
-        <h3>Paste your Dockerfile here</h3>
-        <DockerfileEditor onChange={this.handleInputChange}/>
-      </div>
-    );
-
-    var analysisClasses = classNames('col-xs-6');
-    var analysisStyles;
-    if (this.state.item) {
-      analysisStyles = {paddingLeft: '20px', marginTop: '40px', paddingRight: '40px'};
-    } else {
-      analysisStyles = {paddingLeft: '40px', marginTop: '40px', paddingRight: '20px'};
-    }
-    var analysis;
-    if (this.state.content.trim().length === 0) {
-      analysis = <EmptyDockerfile />;
-    } else {
-      if (this.state.analysis.length === 0) {
-        analysis = <PerfectDockerfile />;
-      } else {
-        analysis = <DockerfileAnalysis dockerfile={this.state.content} items={this.state.analysis} onShowDocs={this.onShowDocs}/>;
-      }
-    }
-
     return (
       <div className="row">
-        <div className="col-xs-12">
+        <div className="col-md-12">
           <div className="row">
-            <div className={editorClasses} style={{paddingLeft: '40px', marginTop: '40px', paddingRight: '20px'}}>
-              {editor}
+            <div className="col-md-6" style={{paddingRight: '20px', paddingLeft: '0px'}}>
+              <DockerfileEditor dockerfile={this.state.content} onChange={this.handleInputChange}/>
             </div>
-            <div className={analysisClasses} style={analysisStyles}>
-              {analysis}
+            <div className="col-md-6" style={{paddingLeft: '40px', paddingRight: '20px'}}>
+              <DockerfileAnalysis dockerfile={this.state.content} items={this.state.analysis} onShowDocs={this.onShowDocs}/>
             </div>
           </div>
         </div>

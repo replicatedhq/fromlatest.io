@@ -3,7 +3,7 @@ var AceEditor = require('react-ace-wrapper');
 var pubsub = require('pubsub-js');
 
 require('brace/mode/dockerfile');
-require('brace/theme/tomorrow');
+require('brace/theme/tomorrow_night_bright');
 require('brace/ext/searchbox');
 
 var DockerfileEditor = React.createClass({
@@ -15,6 +15,7 @@ var DockerfileEditor = React.createClass({
 
   componentDidMount: function() {
     pubsub.subscribe('set.dockerfile', this.onSetDockerfile);
+    this.onSetDockerfile('', this.props.dockerfile);
   },
 
   componentWillUnmount: function() {
@@ -41,13 +42,13 @@ var DockerfileEditor = React.createClass({
 
   render: function() {
     return (
-      <form style={{border: '1px solid #000'}}>
+      <form>
         <AceEditor
           ref="editor"
           mode="dockerfile"
-          theme="tomorrow"
+          theme="tomorrow_night_bright"
           name="editor"
-          fontSize="16px"
+          fontSize="12px"
           width="100%"
           onChange={this.onChange}
           height="initial" />

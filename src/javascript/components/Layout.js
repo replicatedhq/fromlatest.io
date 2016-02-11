@@ -9,9 +9,13 @@ var Layout = React.createClass({
   render: function() {
     return (
       <div>
-        <Navbar />
-        <div className="container-fluid pad-navbar">
-          <RouteHandler />
+        <div>
+          <div className="container-fluid pad-navbar">
+            <RouteHandler />
+          </div>
+        </div>
+        <div className='sidebar'>
+          <Navbar />
         </div>
       </div>
     );
