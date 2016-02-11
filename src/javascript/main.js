@@ -7,6 +7,7 @@ var NotFoundRoute = Router.NotFoundRoute;
 
 var Layout = require('components/Layout');
 var Analyze = require('components/Analyze');
+var About = require('components/About');
 var OverlayAlert = require('components/OverlayAlert');
 var Footer = require('components/Footer');
 
@@ -37,6 +38,7 @@ var Routes = (
   <Route path="/" handler={Main}>
     <Route name="main" path="/" handler={Layout}>
       <Route name="analyze" path="/" handler={Analyze} />
+      <Route name="about" path="/about" handler={About} />
     </Route>
     <DefaultRoute handler={Layout} />
     <NotFoundRoute handler={NotFound} />

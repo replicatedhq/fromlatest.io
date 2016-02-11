@@ -1,4 +1,7 @@
 var React = require('react');
+var ReactRouterBootstrap = require('react-router-bootstrap');
+
+var NavItemLink = ReactRouterBootstrap.NavItemLink;
 
 var Navbar = React.createClass({
   render: function() {
@@ -11,10 +14,13 @@ var Navbar = React.createClass({
         <div className="collapse navbar-collapse navbar-ex1-collapse">
           <ul className="nav navbar-nav">
             <li>
-              <a href="#">About</a>
+              <NavItemLink to="analyze">Analyze</NavItemLink>
             </li>
             <li>
-              <a href="https://github.com/replicatedhq/dockerfilelint">Contribute</a>
+              <NavItemLink to="about">About</NavItemLink>
+            </li>
+            <li>
+              <a href="https://github.com/replicatedhq/dockerfilelint"><i className="fa fa-github" /> Contribute</a>
             </li>
           </ul>
         </div>
