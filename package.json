@@ -13,7 +13,7 @@
     "bootstrap-datepicker": "eternicode/bootstrap-datepicker#7bd535d51d8d71c563c90e3d77e3802626a48d54",
     "brace": "^0.5.1",
     "classnames": "^2.1.2",
-    "dockerfilelint": "0.0.5",
+    "dockerfilelint": "0.0.6",
     "font-awesome": "^4.3.0",
     "font-awesome-webpack": "0.0.3",
     "lodash": "^3.9.3",

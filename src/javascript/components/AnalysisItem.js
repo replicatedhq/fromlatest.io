@@ -27,13 +27,13 @@ var AnalysisItem = React.createClass({
     var button;
     if (this.props.expanded) {
       button = (
-        <Button bsStyle="link" style={{fontSize: '24px', color: '#aaa'}} onClick={this.onCollapse}>
+        <Button bsStyle="link" style={{fontSize: '24px', color: '#000'}} onClick={this.onCollapse}>
           <i className="fa fa-chevron-down" />
         </Button>
       );
     } else {
       button = (
-        <Button bsStyle="link" style={{fontSize: '24px', color: '#aaa'}} onClick={this.onExpand}>
+        <Button bsStyle="link" style={{fontSize: '24px', color: '#000'}} onClick={this.onExpand}>
           <i className="fa fa-chevron-right" />
         </Button>
       );
@@ -49,10 +49,9 @@ var AnalysisItem = React.createClass({
               <div className="info">
                 <div className="row">
                   <div className="col-md-10">
-                    <h2 className="title">Line {this.props.item.line}</h2>
-                    <p className="desc">{this.props.item.title}</p>
+                    <h4 className="desc"><strong>Line {this.props.item.line}</strong> {this.props.item.title}</h4>
                   </div>
-                  <div className="col-md-2" style={{marginTop: '12px', textAlign: 'right'}}>
+                  <div className="col-md-2" style={{textAlign: 'right'}}>
                     {button}
                   </div>
                 </div>
