@@ -17,6 +17,9 @@ var Layout = React.createClass({
         <div className="sidebar">
           <Navbar />
         </div>
+        <footer>
+          Made with <i className="fa fa-heart" /> by <a href="https://www.replicated.com">Replicated</a>.
+        </footer>
       </div>
     );
   }

@@ -9,7 +9,6 @@ var Layout = require('components/Layout');
 var Analyze = require('components/Analyze');
 var About = require('components/About');
 var OverlayAlert = require('components/OverlayAlert');
-var Footer = require('components/Footer');
 
 require('font-awesome-webpack');
 require('styles/main.less');
@@ -27,7 +26,6 @@ var Main = React.createClass({
     return (
       <div>
         <Route/>
-        <Footer/>
         <OverlayAlert />
       </div>
     );
