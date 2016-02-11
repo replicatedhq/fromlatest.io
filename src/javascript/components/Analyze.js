@@ -7,22 +7,16 @@ var dockerfilelint = require('dockerfilelint');
 
 var Analyze = React.createClass({
   getInitialState: function() {
-    /* eslint-disable no-multi-str */
-    var dockerfile = '# This is a sample Dockerfile with a couple of problems.\n\
-# Paste your Dockerfile here.\n\n\
-FROM ubuntu:latest\n\
-RUN apt-get update && \\\n\
-    apt-get install -y make nasm && \\\n\
-    rm -rf /var/lib/apt/lists/*\n\
-\n\
-WORKDIR /usr/src/hello\n\
-copy . /usr/src/hello\n\
-\n\
-RUN make clean hello test\n\
-\n\
-CMD ["./hello"]';
-    /* eslint-enable */
-
+    var dockerfile = '# This is a sample Dockerfile with a couple of problems.\n' +
+                     '# Paste your Dockerfile here.\n\n' +
+                     'FROM ubuntu:latest\n' +
+                     'RUN apt-get update && \\\n' +
+                     '    apt-get install -y make nasm && \\\n' +
+                     '    rm -rf /var/lib/apt/lists/*\n\n' +
+                     'WORKDIR /usr/src/hello\n' +
+                     'copy . /usr/src/hello\n\n' +
+                     'RUN make clean hello test\n\n' +
+                     'CMD ["./hello"]';
     return {
       content: dockerfile,
       analysis: [],
