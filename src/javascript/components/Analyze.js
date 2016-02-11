@@ -58,10 +58,10 @@ CMD ["./hello"]';
       <div className="row">
         <div className="col-md-12">
           <div className="row">
-            <div className="col-md-6" style={{paddingRight: '20px', paddingLeft: '0px'}}>
+            <div className="col-md-7" style={{paddingLeft: '0px'}}>
               <DockerfileEditor dockerfile={this.state.content} onChange={this.handleInputChange}/>
             </div>
-            <div className="col-md-6" style={{paddingLeft: '40px', paddingRight: '20px'}}>
+            <div className="col-md-5">
               <DockerfileAnalysis dockerfile={this.state.content} items={this.state.analysis} onShowDocs={this.onShowDocs}/>
             </div>
           </div>

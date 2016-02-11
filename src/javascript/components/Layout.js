@@ -14,7 +14,7 @@ var Layout = React.createClass({
             <RouteHandler />
           </div>
         </div>
-        <div className='sidebar'>
+        <div className="sidebar">
           <Navbar />
         </div>
       </div>

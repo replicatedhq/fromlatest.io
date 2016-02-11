@@ -51,7 +51,7 @@ var DockerfileEditor = React.createClass({
           fontSize="12px"
           width="100%"
           onChange={this.onChange}
-          height="initial" />
+          height="100vh" />
       </form>
     );
   }

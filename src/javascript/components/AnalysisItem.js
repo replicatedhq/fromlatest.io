@@ -39,33 +39,31 @@ var AnalysisItem = React.createClass({
       );
     }
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-xs-6">
-            <ul className="event-list">
-              <li>
-                <div className="title">
-                  <span>{this.props.item.category}</span>
-                </div>
-                <div className="info">
-                  <div className="row">
-                    <div className="col-xs-10">
-                      <h2 className="title">Line {this.props.item.line}</h2>
-                      <p className="desc">{this.props.item.title}</p>
-                    </div>
-                    <div className="col-xs-2" style={{marginTop: '12px', textAlign: 'right'}}>
-                      {button}
-                    </div>
+      <div className="row">
+        <div className="col-md-12">
+          <ul className="event-list">
+            <li>
+              <div className="title">
+                <span>{this.props.item.category}</span>
+              </div>
+              <div className="info">
+                <div className="row">
+                  <div className="col-md-10">
+                    <h2 className="title">Line {this.props.item.line}</h2>
+                    <p className="desc">{this.props.item.title}</p>
                   </div>
-                  <div className={descriptionClasses}>
-                    <div className="col-xs-12">
-                      <div dangerouslySetInnerHTML={{__html: marked(this.props.item.description)}} />
-                    </div>
+                  <div className="col-md-2" style={{marginTop: '12px', textAlign: 'right'}}>
+                    {button}
                   </div>
                 </div>
-              </li>
-            </ul>
-          </div>
+                <div className={descriptionClasses}>
+                  <div className="col-md-12">
+                    <div dangerouslySetInnerHTML={{__html: marked(this.props.item.description)}} />
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     );
