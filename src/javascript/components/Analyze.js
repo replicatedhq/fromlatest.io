@@ -20,8 +20,16 @@ var Analyze = React.createClass({
     return {
       content: dockerfile,
       analysis: [],
-      item: null
+      item: null,
+      selectionStart: -1,
+      selectionStop: -1
     };
+  },
+
+  handleSelectionChange: function(start, stop) {
+    this.state.selectionStart = start;
+    this.state.selectionStop = stop;
+    this.setState(this.state);
   },
 
   handleInputChange: function(content) {
@@ -53,10 +61,15 @@ var Analyze = React.createClass({
         <div className="col-md-12">
           <div className="row">
             <div className="col-md-7" style={{paddingLeft: '0px'}}>
-              <DockerfileEditor dockerfile={this.state.content} onChange={this.handleInputChange}/>
+              <DockerfileEditor dockerfile={this.state.content} onChange={this.handleInputChange} onSelectionChange={this.handleSelectionChange}/>
             </div>
             <div className="col-md-5">
-              <DockerfileAnalysis dockerfile={this.state.content} items={this.state.analysis} onShowDocs={this.onShowDocs}/>
+              <DockerfileAnalysis
+                dockerfile={this.state.content}
+                items={this.state.analysis}
+                onShowDocs={this.onShowDocs}
+                selectionStart={this.state.selectionStart}
+                selectionStop={this.state.selectionStop}/>
             </div>
           </div>
         </div>

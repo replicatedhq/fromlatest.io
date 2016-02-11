@@ -48,7 +48,12 @@ var DockerfileAnalysis = React.createClass({
 
     this.props.items.forEach(function(item) {
       var node = (
-        <AnalysisItem expanded={_.includes(this.state.expanded, item)} key={item.line + item.title} item={item} onExpand={this.onItemExpand} onCollapse={this.onItemCollapse}/>
+        <AnalysisItem
+          active={(this.props.selectionStart <= item.line) && (this.props.selectionStop >= item.line)}
+          expanded={_.includes(this.state.expanded, item)}
+          key={item.line + item.title}
+          item={item} onExpand={this.onItemExpand}
+          onCollapse={this.onItemCollapse}/>
       );
       if (item.category === 'Possible Bug') {
         nodes.possibleBugs.push(node);

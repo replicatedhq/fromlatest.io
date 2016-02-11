@@ -9,17 +9,38 @@ require('brace/ext/searchbox');
 var DockerfileEditor = React.createClass({
   getInitialState: function() {
     return {
-      initialValue: null
+      initialValue: null,
+      highlightedLineStart: -1,
+      highlightedLineEnd: -1
     };
   },
 
   componentDidMount: function() {
     pubsub.subscribe('set.dockerfile', this.onSetDockerfile);
     this.onSetDockerfile('', this.props.dockerfile);
+    var timer = setInterval(this.onTick, 50);
+    this.setState({timer: timer});
   },
 
   componentWillUnmount: function() {
     pubsub.unsubscribe('set.dockerfile', this.onSetDockerfile);
+    if (this.state.timer) {
+      clearInterval(this.state.timer);
+    }
+  },
+
+  onTick: function() {
+    if (this.refs.editor) {
+      var selectionRange = this.refs.editor.editor.getSelectionRange();
+      if ((selectionRange.start.row + 1 !== this.state.highlightedLineStart) || (selectionRange.end.row + 1 !== this.state.highlightedLineEnd)) {
+        this.state.hightlightedLineStart = selectionRange.start.row + 1;
+        this.state.hightlightedLineEnd = selectionRange.end.row + 1;
+        this.setState(this.state);
+        if (this.props.onSelectionChange) {
+          this.props.onSelectionChange(selectionRange.start.row + 1, selectionRange.end.row + 1);
+        }
+      }
+    }
   },
 
   onSetDockerfile: function(msg, content) {

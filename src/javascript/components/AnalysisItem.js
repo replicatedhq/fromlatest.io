@@ -38,10 +38,13 @@ var AnalysisItem = React.createClass({
         </Button>
       );
     }
+
+    var classes = classNames('event-list', {'active': this.props.active});
+
     return (
       <div className="row">
         <div className="col-md-12">
-          <ul className="event-list">
+          <ul className={classes}>
             <li>
               <div className="title">
                 <span>{this.props.item.category}</span>
