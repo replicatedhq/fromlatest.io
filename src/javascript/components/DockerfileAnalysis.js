@@ -94,7 +94,7 @@ var DockerfileAnalysis = React.createClass({
          }),
       'deprecation':
         classNames('fa',
-          {'fa-caret-down': _.includes(this.state.expandedGroups, 'possibleBugs'),
+          {'fa-caret-down': _.includes(this.state.expandedGroups, 'deprecation'),
            'fa-caret-right': !_.includes(this.state.expandedGroups, 'deprecation')
          })
     };
