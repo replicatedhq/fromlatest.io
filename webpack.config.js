@@ -68,7 +68,7 @@ var config = {
 
     loaders: [
       { test: /src\/javascript\/.+\.js$/, exclude: /node_modules/, loader: 'react-hot!babel-loader' },
-      { test: /node_modules\/replicated-config-render\/.+\.jsx$/, loader: 'babel-loader' },
+      { test: /node_modules\/dockerfilelint\/.+\.js$/, loader: 'babel-loader' },
       { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
       { test: /\.json$/, loader: 'json-loader' },
