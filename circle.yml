@@ -11,6 +11,12 @@ dependencies:
 test:
   override:
     - grunt build:release --buildVersion="${CIRCLE_SHA1:0:7}"
-    - sudo docker build -t quay.io/replicatedcom/fromlatest.io:${CIRCLE_SHA1:0:7} $HOME/fromlatest.io
-    - sudo docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS quay.io
-    - sudo docker push quay.io/replicatedcom/fromlatest.io:${CIRCLE_SHA1:0:7}
+
+deployment:
+  docker:
+    branch: master
+    owner: replicatedhq
+    commands:
+      - sudo docker build -t quay.io/replicatedcom/fromlatest.io:${CIRCLE_SHA1:0:7} $HOME/fromlatest.io
+      - sudo docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS quay.io
+      - sudo docker push quay.io/replicatedcom/fromlatest.io:${CIRCLE_SHA1:0:7}
