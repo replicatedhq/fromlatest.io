@@ -63,7 +63,10 @@ var config = {
     preLoaders: [{
       test: /src\/javascript\/.+\.js$/,
       exclude: /node_modules/,
-      loader: 'eslint-loader'
+      loader: 'babel',
+      query: {
+        presets: ['react']
+      }
     }],
 
     loaders: [

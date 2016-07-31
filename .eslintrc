@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "plugins": [
     "react"
   ],
@@ -14,6 +15,7 @@
     "quotes": [2, "single"],
     "strict": [2, "never"],
     "indent": [2, 2],
+    "no-shadow": [1],
     "no-debugger": [1]
   }
 }
