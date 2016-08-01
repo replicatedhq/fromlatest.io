@@ -31,8 +31,8 @@
     "superagent": "^1.2.0"
   },
   "devDependencies": {
-    "babel-core": "^6.10.4",
-    "babel-loader": "^5.2.2",
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
     "bootstrap-webpack": "gowravshekar/bootstrap-webpack#9c155357d6f5049c86bce517b12053ae6935c7fb",
     "css-loader": "^0.14.5",
     "eslint": "^0.23.0",
