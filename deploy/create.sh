@@ -13,7 +13,7 @@ echo "Deploying version $rev of site"
 docker service create \
      --name fromlatest \
      --replicas 2 \
-     --network ingress \
+     --network replicated \
      --constraint "node.labels.publicip == ephemeral" \
      --with-registry-auth \
      quay.io/replicatedcom/fromlatest.io:$rev
