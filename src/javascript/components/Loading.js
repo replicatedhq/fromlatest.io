@@ -1,7 +1,7 @@
-var React = require('react');
+import React from 'react';
 
-var Loading = React.createClass({
-  render: function() {
+export default class Loading extends React.Component{
+  render() {
     return (
       <div className="row">
         <div className="col-sm-12 main">
@@ -10,6 +10,4 @@ var Loading = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = Loading;
+}

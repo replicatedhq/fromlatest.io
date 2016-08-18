@@ -1,35 +1,45 @@
-var React = require('react');
-var AceEditor = require('react-ace-wrapper');
-var pubsub = require('pubsub-js');
+import React from 'react';
+import AceEditor from 'react-ace';
+import pubsub from 'pubsub-js';
 
 require('brace/mode/dockerfile');
 require('brace/theme/tomorrow_night_bright');
 require('brace/ext/searchbox');
 
-var DockerfileEditor = React.createClass({
-  getInitialState: function() {
-    return {
+export default class DockerfileEditor extends React.Component{
+  constructor(props) {
+    super(props);
+
+    this.binder('onTick', 'onChange');
+
+    this.state = {
       initialValue: null,
       highlightedLineStart: -1,
       highlightedLineEnd: -1
     };
-  },
+  }
 
-  componentDidMount: function() {
+  binder(...methods) {
+    methods.forEach(
+      (method) => this[method] = this[method].bind(this)
+    );
+  }
+
+  componentDidMount() {
     pubsub.subscribe('set.dockerfile', this.onSetDockerfile);
     this.onSetDockerfile('', this.props.dockerfile);
     var timer = setInterval(this.onTick, 50);
     this.setState({timer: timer});
-  },
+  }
 
-  componentWillUnmount: function() {
+  componentWillUnmount() {
     pubsub.unsubscribe('set.dockerfile', this.onSetDockerfile);
     if (this.state.timer) {
       clearInterval(this.state.timer);
     }
-  },
+  }
 
-  onTick: function() {
+  onTick() {
     if (this.refs.editor) {
       var selectionRange = this.refs.editor.editor.getSelectionRange();
       if ((selectionRange.start.row + 1 !== this.state.highlightedLineStart) || (selectionRange.end.row + 1 !== this.state.highlightedLineEnd)) {
@@ -41,27 +51,27 @@ var DockerfileEditor = React.createClass({
         }
       }
     }
-  },
+  }
 
-  onSetDockerfile: function(msg, content) {
+  onSetDockerfile(msg, content) {
     this.refs.editor.editor.setValue(content, -1);
-  },
+  }
 
-  componentDidUpdate: function() {
+  componentDidUpdate() {
     if (this.refs.editor) {
       this.refs.editor.editor.setOption('useSoftTabs', true);
       this.refs.editor.editor.setOption('tabSize', 2);
       this.refs.editor.editor.setOption('cursorStyle', 'smooth');
     }
-  },
+  }
 
-  onChange: function(content) {
+  onChange(content) {
     if (this.props.onChange) {
       this.props.onChange(content);
     }
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <form>
         <AceEditor
@@ -71,11 +81,11 @@ var DockerfileEditor = React.createClass({
           name="editor"
           fontSize={12}
           width="100%"
+          value={this.props.dockerfile}
           onChange={this.onChange}
+          editorProps={{$blockScrolling: true}}
           height="100vh" />
       </form>
     );
   }
-});
-
-module.exports = DockerfileEditor;
+}
