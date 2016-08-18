@@ -1,20 +1,20 @@
-var React = require('react');
+import React from 'react';
 
-var About = React.createClass({
-  render: function() {
+export default class About extends React.Component{
+  render() {
     return (
       <div className="row" style={{padding: '50px'}}>
         <div className="col-md-12">
           <h2>Our goal</h2>
           <p>
             The goal of this project is to help Dockerfile authors create better and more portable Docker images.  This includes:
-            <ul>
-              <li>Writing Dockerfiles that are maintainable</li>
-              <li>Learning best practices that aren't always clearly documented</li>
-              <li>Avoiding deprecated syntax</li>
-              <li>Smallest possible images</li>
-            </ul>
           </p>
+          <ul>
+            <li>Writing Dockerfiles that are maintainable</li>
+            <li>Learning best practices that aren't always clearly documented</li>
+            <li>Avoiding deprecated syntax</li>
+            <li>Smallest possible images</li>
+          </ul>
           <h2><i className="fa fa-github" /> Contribute</h2>
           <div className="row">
             <div className="col-md-6">
@@ -30,6 +30,4 @@ var About = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = About;
+}

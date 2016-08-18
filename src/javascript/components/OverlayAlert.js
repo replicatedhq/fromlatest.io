@@ -9,11 +9,6 @@ var Modal = ReactBootstrap.Modal;
 var Button = ReactBootstrap.Button;
 
 var OverlayAlert = React.createClass({
-  mixins: [
-    Reflux.connect(AlertStore, 'alert'),
-    ReactBootstrap.OverlayMixin
-  ],
-
   render: function() {
     return <span></span>;
   },
