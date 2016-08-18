@@ -1,48 +1,22 @@
-var React = require('react');
-var Router = require('react-router');
+import React from 'react';
+import {Router, Route, useRouterHistory} from 'react-router';
+import { render } from 'react-dom'
+import {createHashHistory} from 'history'
 
-var Route = Router.RouteHandler;
-var DefaultRoute = Router.DefaultRoute;
-var NotFoundRoute = Router.NotFoundRoute;
-
-var Layout = require('components/Layout');
-var Analyze = require('components/Analyze');
-var About = require('components/About');
-var OverlayAlert = require('components/OverlayAlert');
+import Layout from 'components/Layout';
+import Analyze from 'components/Analyze';
+import About from 'components/About';
 
 require('font-awesome-webpack');
 require('styles/main.less');
 
-var content = document.getElementById('content');
+const history = useRouterHistory(createHashHistory)({ queryKey: false })
 
-var NotFound = React.createClass({
-  render: function () {
-    return <h2>Not found</h2>;
-  }
-});
-
-var Main = React.createClass({
-  render: function () {
-    return (
-      <div>
-        <Route/>
-        <OverlayAlert />
-      </div>
-    );
-  }
-});
-
-var Routes = (
-  <Route path="/" handler={Main}>
-    <Route name="main" path="/" handler={Layout}>
-      <Route name="analyze" path="/" handler={Analyze} />
-      <Route name="about" path="/about" handler={About} />
+render((
+  <Router history={history}>
+    <Route component={Layout}>
+      <Route path="/" component={Analyze} />
+      <Route path="/about" component={About} />
     </Route>
-    <DefaultRoute handler={Layout} />
-    <NotFoundRoute handler={NotFound} />
-  </Route>
-);
-
-Router.run(Routes, function (Handler) {
-  React.render(<Handler/>, content);
-});
+  </Router>
+), document.getElementById('content'));

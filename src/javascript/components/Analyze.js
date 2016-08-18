@@ -1,12 +1,14 @@
-var React = require('react');
+import React from 'react';
 
-var DockerfileEditor = require('components/DockerfileEditor');
-var DockerfileAnalysis = require('components/DockerfileAnalysis');
+import DockerfileEditor from 'components/DockerfileEditor';
+import DockerfileAnalysis from 'components/DockerfileAnalysis';
 
-var dockerfilelint = require('dockerfilelint');
+import dockerfilelint from 'dockerfilelint';
 
-var Analyze = React.createClass({
-  getInitialState: function() {
+export default class Analyze extends React.Component{
+  constructor(props) {
+    super(props);
+
     var dockerfile = '# This is a sample Dockerfile with a couple of problems.\n' +
                      '# Paste your Dockerfile here.\n\n' +
                      'FROM ubuntu:latest\n' +
@@ -17,22 +19,31 @@ var Analyze = React.createClass({
                      'copy . /usr/src/hello\n\n' +
                      'RUN make clean hello test\n\n' +
                      'CMD ["./hello"]';
-    return {
+
+    this.binder('handleSelectionChange', 'handleInputChange');
+
+    this.state = {
       content: dockerfile,
       analysis: [],
       item: null,
       selectionStart: -1,
       selectionStop: -1
-    };
-  },
+    }
+  }
 
-  handleSelectionChange: function(start, stop) {
+  binder(...methods) {
+    methods.forEach(
+      (method) => this[method] = this[method].bind(this)
+    );
+  }
+
+  handleSelectionChange(start, stop) {
     this.state.selectionStart = start;
     this.state.selectionStop = stop;
     this.setState(this.state);
-  },
+  }
 
-  handleInputChange: function(content) {
+  handleInputChange(content) {
     this.setState({content: content});
 
     // analyze it
@@ -53,9 +64,9 @@ var Analyze = React.createClass({
     });
 
     this.setState({analysis: analysis});
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <div className="row">
         <div className="col-md-12">
@@ -76,6 +87,4 @@ var Analyze = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = Analyze;
+}

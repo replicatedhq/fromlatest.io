@@ -1,44 +1,40 @@
-var React = require('react');
-var _ = require('lodash');
-var classNames = require('classnames');
+import React from 'react';
+import _ from 'lodash';
+import classNames from 'classnames';
 
-var AnalysisItem = require('components/AnalysisItem');
+import AnalysisItem from 'components/AnalysisItem';
 
-var DockerfileAnalysis = React.createClass({
-  getDefaultProps: function() {
-    return {
-      items: []
-    };
-  },
+export default class DockerfileAnalysis extends React.Component{
+  constructor(props) {
+    super(props);
 
-  getInitialState: function() {
-    return {
+    this.state = {
       expandedItems: [],
       expandedGroups: ['possibleBugs', 'optimization', 'clarity', 'deprecation']
-    };
-  },
+    }
+  }
 
-  onGroupToggle: function(groupName) {
+  onGroupToggle(groupName) {
     if (_.includes(this.state.expandedGroups, groupName)) {
       this.state.expandedGroups = _.without(this.state.expandedGroups, groupName);
     } else {
       this.state.expandedGroups.push(groupName);
     }
     this.setState({expandedGroups: this.state.expandedGroups});
-  },
+  }
 
-  onItemExpand: function(item) {
+  onItemExpand(item) {
     this.state.expandedItems.push(item);
     this.setState({expandedItems: this.state.expandedItems});
-  },
+  }
 
-  onItemCollapse: function(item) {
+  onItemCollapse(item) {
     var expandedItems = this.state.expandedItems;
     expandedItems = _.without(expandedItems, item);
     this.setState({expandedItems: expandedItems});
-  },
+  }
 
-  render: function() {
+  render() {
     if (this.props.items.length === 0) {
       return (
         <div>
@@ -152,6 +148,6 @@ var DockerfileAnalysis = React.createClass({
       </div>
     );
   }
-});
+}
 
-module.exports = DockerfileAnalysis;
+DockerfileAnalysis.defaultProps = {items: []};

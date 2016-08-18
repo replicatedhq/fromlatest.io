@@ -1,12 +1,9 @@
-var React = require('react');
-var ReactRouterBootstrap = require('react-router-bootstrap');
+import React from 'react';
 
-var NavItemLink = ReactRouterBootstrap.NavItemLink;
+import logo from 'assets/from-latest-logo.png';
 
-var logo = require('assets/from-latest-logo.png');
-
-var Navbar = React.createClass({
-  render: function() {
+export default class Navbar extends React.Component{
+  render() {
     return (
       <nav className="navbar navbar-default" role="navigation">
         <div className="navbar-header">
@@ -16,10 +13,10 @@ var Navbar = React.createClass({
         <div className="collapse navbar-collapse navbar-ex1-collapse">
           <ul className="nav navbar-nav">
             <li>
-              <NavItemLink to="analyze">Analyze</NavItemLink>
+              <a href="/#">Analyze</a>
             </li>
             <li>
-              <NavItemLink to="about">About</NavItemLink>
+              <a href="/#/about">About</a>
             </li>
             <li>
               <a href="https://github.com/replicatedhq/dockerfilelint"><i className="fa fa-github" /> Contribute</a>
@@ -29,6 +26,4 @@ var Navbar = React.createClass({
       </nav>
     );
   }
-});
-
-module.exports = Navbar;
+}

@@ -1,17 +1,15 @@
-var React = require('react');
-var Router = require('react-router');
+import React from 'react';
 
-var RouteHandler = Router.RouteHandler;
+import Navbar from 'components/Navbar';
+import OverlayAlert from 'components/OverlayAlert';
 
-var Navbar = require('components/Navbar');
-
-var Layout = React.createClass({
-  render: function() {
+export default class Layout extends React.Component{
+  render() {
     return (
       <div>
         <div>
           <div className="container-fluid pad-navbar">
-            <RouteHandler />
+            {this.props.children}
           </div>
         </div>
         <div className="sidebar">
@@ -20,9 +18,8 @@ var Layout = React.createClass({
         <footer>
           Made with <i className="fa fa-heart" /> by <a href="https://www.replicated.com">Replicated</a>.
         </footer>
+        <OverlayAlert />
       </div>
     );
   }
-});
-
-module.exports = Layout;
+}

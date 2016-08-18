@@ -1,24 +1,23 @@
-var React = require('react');
-var marked = require('marked');
-var classNames = require('classnames');
-var ReactBootstrap = require('react-bootstrap');
+import React from 'react';
+import marked  from 'marked';
+import classNames from 'classnames';
 
-var Button = ReactBootstrap.Button;
+import { Button } from 'react-bootstrap';
 
-var AnalysisItem = React.createClass({
-  onExpand: function() {
+export default class AnalysisItem extends React.Component{
+  onExpand() {
     if (this.props.onExpand) {
       this.props.onExpand(this.props.item);
     }
-  },
+  }
 
-  onCollapse: function() {
+  onCollapse() {
     if (this.props.onCollapse) {
       this.props.onCollapse(this.props.item);
     }
-  },
+  }
 
-  render: function() {
+  render() {
     if (!this.props.item) {
       return <div></div>;
     }
@@ -70,6 +69,5 @@ var AnalysisItem = React.createClass({
       </div>
     );
   }
-});
+}
 
-module.exports = AnalysisItem;
