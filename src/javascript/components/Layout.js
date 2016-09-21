@@ -4,16 +4,9 @@ import Navbar from 'components/Navbar';
 import OverlayAlert from 'components/OverlayAlert';
 import AnalysisItem from 'components/AnalysisItem';
 
-
-
 export default class Layout extends React.Component{
-
-
-
   render() {
-
     return (
-
       <div>
         <div>
           <Navbar />
@@ -24,10 +17,6 @@ export default class Layout extends React.Component{
             {this.props.children}
           </div>
         </div>
-
-        <footer>
-            <p>issues found: optimization issues </p>
-        </footer>
         <OverlayAlert />
       </div>
     );

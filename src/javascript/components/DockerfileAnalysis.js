@@ -8,10 +8,18 @@ export default class DockerfileAnalysis extends React.Component{
   constructor(props) {
     super(props);
 
+    this.binder('onGroupToggle', 'onItemExpand', 'onItemCollapse');
+
     this.state = {
       expandedItems: [],
       expandedGroups: ['possibleBugs', 'optimization', 'clarity', 'deprecation']
     }
+  }
+
+  binder(...methods) {
+    methods.forEach(
+      (method) => this[method] = this[method].bind(this)
+    );
   }
 
   onGroupToggle(groupName) {
