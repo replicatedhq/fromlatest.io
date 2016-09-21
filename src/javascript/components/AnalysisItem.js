@@ -5,11 +5,24 @@ import classNames from 'classnames';
 import { Button } from 'react-bootstrap';
 
 export default class AnalysisItem extends React.Component{
+  constructor(props) {
+    super(props);
+
+    this.binder('onExpand', 'onCollapse');
+  }
+
+  binder(...methods) {
+    methods.forEach(
+      (method) => this[method] = this[method].bind(this)
+    );
+  }
+
   onExpand() {
     if (this.props.onExpand) {
       this.props.onExpand(this.props.item);
     }
   }
+
   onCollapse() {
     if (this.props.onCollapse) {
       this.props.onCollapse(this.props.item);

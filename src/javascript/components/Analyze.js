@@ -68,22 +68,27 @@ export default class Analyze extends React.Component{
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md-12">
-          <div className="row">
-            <div className="col-md-6" style={{paddingLeft: '0px'}}>
-              <DockerfileEditor dockerfile={this.state.content} onChange={this.handleInputChange} onSelectionChange={this.handleSelectionChange}/>
-            </div>
-            <div className="col-md-6" >
-              <DockerfileAnalysis
-                dockerfile={this.state.content}
-                items={this.state.analysis}
-                onShowDocs={this.onShowDocs}
-                selectionStart={this.state.selectionStart}
-                selectionStop={this.state.selectionStop}/>
+      <div>
+        <div className="row">
+          <div className="col-md-12">
+            <div className="row">
+              <div className="col-md-6" style={{paddingLeft: '0px'}}>
+                <DockerfileEditor dockerfile={this.state.content} onChange={this.handleInputChange} onSelectionChange={this.handleSelectionChange}/>
+              </div>
+              <div className="col-md-6" >
+                <DockerfileAnalysis
+                  dockerfile={this.state.content}
+                  items={this.state.analysis}
+                  onShowDocs={this.onShowDocs}
+                  selectionStart={this.state.selectionStart}
+                  selectionStop={this.state.selectionStop}/>
+              </div>
             </div>
           </div>
         </div>
+        <footer>
+          <p>{this.state.analysis.length} issue{this.state.analysis.length === 1 ? '' : 's'} found</p>
+        </footer>
       </div>
     );
   }
