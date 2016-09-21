@@ -10,7 +10,6 @@ export default class AnalysisItem extends React.Component{
       this.props.onExpand(this.props.item);
     }
   }
-
   onCollapse() {
     if (this.props.onCollapse) {
       this.props.onCollapse(this.props.item);
@@ -26,41 +25,40 @@ export default class AnalysisItem extends React.Component{
     var button;
     if (this.props.expanded) {
       button = (
-        <Button bsStyle="link" style={{fontSize: '24px', color: '#000'}} onClick={this.onCollapse}>
-          <i className="fa fa-chevron-down" />
+        <Button bsStyle="link" style={{fontSize: '12px', color: '#fff', margin: '4px 0px 0px'}} onClick={this.onCollapse}>
+          <i className="fa fa-chevron-up" />
         </Button>
       );
     } else {
       button = (
-        <Button bsStyle="link" style={{fontSize: '24px', color: '#000'}} onClick={this.onExpand}>
-          <i className="fa fa-chevron-right" />
+        <Button bsStyle="link" style={{fontSize: '12px', color: '#fff', margin: '4px 0px 0px'}} onClick={this.onExpand}>
+          <i className="fa fa-chevron-down" />
         </Button>
       );
     }
 
     var classes = classNames('event-list', {'active': this.props.active});
-
+    var category = this.props.item.category;
+    category = category.replace(/\s/g, '');
+    category = category.toLowerCase();
     return (
       <div className="row">
         <div className="col-md-12">
           <ul className={classes}>
             <li>
-              <div className="title">
-                <span>{this.props.item.category}</span>
-              </div>
-              <div className="info">
+              <div className={'info ' + category}  >
                 <div className="row">
                   <div className="col-md-10">
-                    <h4 className="desc"><strong>Line {this.props.item.line}</strong> {this.props.item.title}</h4>
+                    <h4 className="desc"><strong>Line {this.props.item.line}:</strong> {this.props.item.title}</h4>
                   </div>
                   <div className="col-md-2" style={{textAlign: 'right'}}>
                     {button}
                   </div>
                 </div>
-                <div className={descriptionClasses}>
-                  <div className="col-md-12">
-                    <div dangerouslySetInnerHTML={{__html: marked(this.props.item.description)}} />
-                  </div>
+              </div>
+              <div className={descriptionClasses + ' description'}>
+                <div className="col-md-12">
+                  <div dangerouslySetInnerHTML={{__html: marked(this.props.item.description)}} />
                 </div>
               </div>
             </li>
@@ -70,4 +68,3 @@ export default class AnalysisItem extends React.Component{
     );
   }
 }
-

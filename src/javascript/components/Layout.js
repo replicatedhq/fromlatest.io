@@ -1,22 +1,32 @@
 import React from 'react';
-
+import _ from 'lodash';
 import Navbar from 'components/Navbar';
 import OverlayAlert from 'components/OverlayAlert';
+import AnalysisItem from 'components/AnalysisItem';
+
+
 
 export default class Layout extends React.Component{
+
+
+
   render() {
+
     return (
+
       <div>
         <div>
-          <div className="container-fluid pad-navbar">
+          <Navbar />
+        </div>
+
+        <div>
+          <div className="container-fluid">
             {this.props.children}
           </div>
         </div>
-        <div className="sidebar">
-          <Navbar />
-        </div>
+
         <footer>
-          Made with <i className="fa fa-heart" /> by <a href="https://www.replicated.com">Replicated</a>.
+            <p>issues found: optimization issues </p>
         </footer>
         <OverlayAlert />
       </div>
