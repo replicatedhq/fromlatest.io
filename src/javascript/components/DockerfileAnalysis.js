@@ -98,49 +98,23 @@ export default class DockerfileAnalysis extends React.Component{
     return (
       <div className="analysis">
         <div>
-          <h3>
-            <a href="#" onClick={this.onGroupToggle.bind(this, 'possibleBugs')}>
-              <i className={groupHeaderIconClasses.possibleBugs} />
-              {' '}
-              Possible Bugs - {nodes.possibleBugs.length} found
-            </a>
-          </h3>
           <div className={classNames({'hidden': !_.includes(this.state.expandedGroups, 'possibleBugs')})}>
             {nodes.possibleBugs}
           </div>
         </div>
+
         <div>
-          <h3>
-            <a href="#" onClick={this.onGroupToggle.bind(this, 'optimization')}>
-              <i className={groupHeaderIconClasses.optimization} />
-              {' '}
-              Optimization - {nodes.optimization.length} found
-            </a>
-          </h3>
           <div className={classNames({'hidden': !_.includes(this.state.expandedGroups, 'optimization')})}>
             {nodes.optimization}
           </div>
         </div>
+
         <div>
-          <h3>
-            <a href="#" onClick={this.onGroupToggle.bind(this, 'clarity')}>
-              <i className={groupHeaderIconClasses.clarity} />
-              {' '}
-              Clarity - {nodes.clarity.length} found
-            </a>
-          </h3>
           <div className={classNames({'hidden': !_.includes(this.state.expandedGroups, 'clarity')})}>
             {nodes.clarity}
           </div>
         </div>
         <div>
-          <h3>
-            <a href="#" onClick={this.onGroupToggle.bind(this, 'deprecation')}>
-              <i className={groupHeaderIconClasses.deprecation} />
-              {' '}
-              Deprecation - {nodes.deprecation.length} found
-            </a>
-          </h3>
           <div className={classNames({'hidden': !_.includes(this.state.expandedGroups, 'deprecation')})}>
             {nodes.deprecation}
           </div>

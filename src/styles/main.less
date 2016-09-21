@@ -1,338 +1,314 @@
 /*
  * Base structure
  */
-
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  padding-bottom: 50px;
-  background-color: #fff;
-  font-family: 'Roboto', sans-serif;
-  background-color: #000;
-  color: #aaaaaa;
-  min-height: 100%;
+    padding-bottom: 50px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000;
+    color: #aaaaaa;
+    min-height: 100%;
 }
 
 .underline * a {
-  text-decoration: underline !important;
+    text-decoration: underline !important;
 }
 
 a.underline {
-  text-decoration: underline;
+    text-decoration: underline;
 }
-
 /*
  * Global add-ons
  */
-
 .sub-header {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
 }
 
 .center-form {
-  padding: 0 15px;
+    padding: 0 15px;
 }
 @media (min-width: 768px) {
-  .center-form {
-    width: 400px;
-    margin: 0 auto;
-  }
+    .center-form {
+        width: 400px;
+        margin: 0 auto;
+    }
 }
 
 .form-group-lg .form-control-feedback {
-  height: 46px;
-  line-height: 46px;
+    height: 46px;
+    line-height: 46px;
 }
-
 /*
- * Side navbar
+ *  Navbar
  */
-@media (min-width: 768px) {
-  .pad-navbar {
-    padding-right: 180px;
-  }
 
-  .navbar-collapse {
-    height: auto;
-    border-top: 0;
-    box-shadow: none;
-    max-height: none;
-    padding-left:0;
-    padding-right:0;
-  }
-
-  .navbar-collapse.collapse {
-    display: block !important;
-    width: auto !important;
-    padding-bottom: 0;
-    overflow: visible !important;
-  }
-
-  .navbar-collapse.in {
-    overflow-x: visible;
-  }
-
-  .navbar {
-    float: right;
-  	width: 160px;
-  	margin-right: 0;
-  	margin-left: 0;
-    border-radius: 0;
-    background-color: #1d1e1c;
-    height: 100%;
-  }
-
-  .navbar-nav,
-  .navbar-nav > li,
-  .navbar-left,
-  .navbar-right,
-  .navbar-header {
-    float:none !important;
-  }
-
-  .navbar-default .navbar-nav > li > a:hover {
-    color: #aaa;
-  }
-
-  .navbar-right .dropdown-menu {
-    left:0;
-    right:auto;
-  }
-
-  .navbar-collapse .anavbar-nav.navbar-right:last-child {
-      margin-right: 0;
-  }
-
-  .navbar-default {
-    border: none;
-  }
-
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-  }
+.navbar {
+  background-color: #1D1E1C;
+  margin-bottom: 0!important;
 }
 
+.navbar img {
+  padding: 20px;
+}
+
+.navbar-nav {
+    float: right;
+    margin-right: 25px;
+}
+
+.navbar-nav li {
+    float: left;
+    list-style: none;
+    margin: 20px;
+    ;
+}
+
+.navbar-nav li a {
+    color: #aaa;
+}
 /*
  * Main content
  */
-
 .main {
-  padding: 20px;
+    padding: 20px;
 }
 @media (min-width: 768px) {
-  .main {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
 }
+
 .main .page-header {
-  margin-top: 0;
+    margin-top: 0;
 }
-
-
 /*
  * Footer
  */
 footer {
-   position: fixed;
-   bottom: 0;
-   width: 100%;
-   height: 20px;
-   text-align: center;
-   color: #777;
-   margin-bottom: 0.5em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    color: #777;
+    background-color: #1D1E1C;
 }
 
 footer a,
 footer a:hover {
-  color: #d0d0d0;
+    color: #d0d0d0;
 }
-
 /*
  * Placeholder dashboard ideas
  */
 .placeholder img {
-  display: inline-block;
-  border-radius: 50%;
+    display: inline-block;
+    border-radius: 50%;
 }
-
-
 /*
  * Random
  */
 .ace_editor {
-  min-height: 600px;
-  margin-bottom: 15px;
+    min-height: 600px;
+    margin-bottom: 15px;
 }
 
 .form-control-feedback {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  display: block;
-  width: 34px;
-  height: 34px;
-  line-height: 34px;
-  text-align: center;
-  pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
 }
 
 .border-right-none {
-  border-right: none;
+    border-right: none;
 }
+
 .border-left-none {
-  border-left: none;
+    border-left: none;
 }
 
 .expand-button {
-  color: #000;
+    color: #000;
 }
 
 .enabled {
-  font-weight: 500;
-  color: #006000;
+    font-weight: 500;
+    color: #006000;
 }
+
 .disabled {
-  font-weight: 500;
-  color: #600000;
+    font-weight: 500;
+    color: #600000;
 }
 
 .pull-right {
-  text-align: right;
+    text-align: right;
 }
 
 .small-table {
-  border: 1px solid #ccc;
-  padding: 5px;
-  width: auto;
-  min-width: 400px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: auto;
+    min-width: 400px;
 }
 
 .small-table > tbody > tr > td:first-child {
-  width: 200px;
+    width: 200px;
 }
 
 .large-table {
-  border: 1px solid #ccc;
-  padding: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
 }
 
 .field-value {
-  min-width: 300px;
-  max-width: 500px;
-  overflow: auto;
-  white-space: -moz-pre-wrap;
-  white-space: -hp-pre-wrap;
-  white-space: -o-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: pre-wrap;
-  white-space: pre-line;
-  word-wrap: break-word;
+    min-width: 300px;
+    max-width: 500px;
+    overflow: auto;
+    white-space: -moz-pre-wrap;
+    white-space: -hp-pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: pre-wrap;
+    white-space: pre-line;
+    word-wrap: break-word;
 }
 
 table.table-action-button > tbody > tr > td:first-child {
-  width: 300px;
+    width: 300px;
 }
+
 table.table-action-button > tbody > tr > td:last-child {
-  min-width: 70px;
-  text-align: right;
+    min-width: 70px;
+    text-align: right;
 }
 
 input.input-width {
-  min-width: 300px;
-  max-width: 500px;
+    min-width: 300px;
+    max-width: 500px;
 }
 
 .small {
-  font-size: 10px;
+    font-size: 10px;
 }
 
 .medium {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .event-list {
-	list-style: none;
-	margin: 0px;
-	padding: 0px;
-  background-color:#aaa;
-  color: #000;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #aaa;
+    color: #000;
 }
 
 .event-list > li {
-	background-color: #aaa;
-	box-shadow: 0px 0px 5px rgb(51, 51, 51);
-	box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
-	padding: 0px;
-	margin: 0px 0px 20px;
+    padding: 0;
+    margin: 10px 0;
 }
-.event-list.active > li {
-  background-color: #fff;
+
+.event-list.active > li > .info  {
+    padding: 30px;
 }
 
 .event-list > li > .title {
-	display: inline-block;
-	width: 100%;
-	color: rgb(255, 255, 255);
-	background-color: #3E505B;
-	padding: 5px;
-	text-align: center;
-	text-transform: uppercase;
+    display: inline-block;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background-color: #3E505B;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
 }
+
+.event-list > li > .description {
+    background-color: #fff;
+    margin: 0;
+    padding: 20px;
+}
+
 .event-list > li:nth-child(even) > .title {
-	background-color: #3E505B;
+    background-color: #fff;
 }
 
 .event-list > li > .info {
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+    padding: 8px 20px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.event-list > li > .optimization {
+    background-color: #FC4B4E;
+}
+
+.event-list > li > .clarity {
+    background-color: #FCA14B;
+}
+
+.event-list > li > .deprecation {
+    background-color: #FCA14B;
+}
+
+.event-list > li > .possiblebug {
+    background-color: #4efc4b;
 }
 
 h2.title {
-  margin-top: 10px;
-  font-size: 24px !important;
-  margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 24px !important;
+    margin-bottom: 5px;
 }
 
 .event-list > li > .info > .desc {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .event-list > li a {
-  text-decoration: underline !important;
+    text-decoration: underline !important;
+}
+
+.analysis {
+    background-color: #F4F5F5;
+    min-height: 1000px!important;
 }
 
 .analysis-event {
-  padding: 20px;
+    padding: 0;
 }
 
 .analysis > * > h3 {
-  font-size: 15px;
-  font-weight: 700;
+    font-size: 15px;
+    font-weight: 700;
 }
 
 .analysis > * > h3 > a {
-  color: #aaa;
+    color: #aaa;
 }
+
 .analysis > * > h3 > a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 code {
-  background-color: inherit;
+    background-color: inherit;
 }
 
 blockquote {
-  font-size: 14px;
-  color: #666;
+    font-size: 14px;
+    color: #666;
 }
