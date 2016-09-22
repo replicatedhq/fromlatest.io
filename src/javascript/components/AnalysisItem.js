@@ -62,7 +62,7 @@ export default class AnalysisItem extends React.Component{
               <div className={'info ' + category}  >
                 <div className="row">
                   <div className="col-md-10">
-                    <h4 className="desc"><strong>Line {this.props.item.line}:</strong> {this.props.item.title}</h4>
+                    <h4 className="desc"><strong>Line {this.props.item.line}:</strong> {this.props.item.title} <span>{this.props.item.category} issue</span></h4>
                   </div>
                   <div className="col-md-2" style={{textAlign: 'right'}}>
                     {button}
