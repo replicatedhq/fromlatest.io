@@ -16,7 +16,7 @@ export default class Navbar extends React.Component{
             <a href="/#/about">About</a>
           </li>
           <li>
-            <a href="https://github.com/replicatedhq/dockerfilelint"><i className="fa fa-github" /> Contribute</a>
+            <a href="https://github.com/replicatedhq/dockerfilelint" target="_blank"><i className="fa fa-github" /> Contribute</a>
           </li>
         </ul>
       </div>
