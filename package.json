@@ -16,7 +16,7 @@
     "brace": "^0.8.0",
     "classnames": "^2.1.2",
     "dockerfilelint": "^1.1.2",
-    "font-awesome": "^4.3.0",
+    "font-awesome": "^4.7.0",
     "font-awesome-webpack": "0.0.4",
     "fs": "0.0.2",
     "history": "^2.1.2",
