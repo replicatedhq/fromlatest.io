@@ -21,7 +21,7 @@
     "fs": "0.0.2",
     "history": "^2.1.2",
     "install": "^0.8.1",
-    "lodash": "^4.14.0",
+    "lodash": "^4.16.6",
     "marked": "https://registry.npmjs.org/marked/-/marked-0.3.5.tgz",
     "moment": "^2.10.6",
     "node-uuid": "^1.4.3",
