@@ -34,7 +34,7 @@
     "react-dom": "^15.3.0",
     "react-router": "^2.6.1",
     "react-router-bootstrap": "^0.23.1",
-    "reflux": "^0.4.1",
+    "reflux": "^5.0.2",
     "superagent": "^2.1.0"
   },
   "devDependencies": {
