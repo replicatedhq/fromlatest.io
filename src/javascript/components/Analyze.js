@@ -5,6 +5,8 @@ import DockerfileAnalysis from 'components/DockerfileAnalysis';
 
 import dockerfilelint from 'dockerfilelint';
 
+import replicatedLogo from 'assets/replicated_logo_footer@2x.png';
+
 export default class Analyze extends React.Component{
   constructor(props) {
     super(props);
@@ -86,8 +88,11 @@ export default class Analyze extends React.Component{
             </div>
           </div>
         </div>
-        <footer>
-          <p>{this.state.analysis.length} issue{this.state.analysis.length === 1 ? '' : 's'} found</p>
+        <footer id="footer">
+          <span id="results">{this.state.analysis.length} issue{this.state.analysis.length === 1 ? '' : 's'} found</span>
+          <span style={{paddingLeft: "40px"}}>
+            Made by <a href="https://www.replicated.com" target="_blank"><img src={replicatedLogo} /></a>
+          </span>
         </footer>
       </div>
     );
