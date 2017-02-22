@@ -44,7 +44,7 @@
     "bootstrap-webpack": "gowravshekar/bootstrap-webpack#9c155357d6f5049c86bce517b12053ae6935c7fb",
     "css-loader": "^0.23.1",
     "eslint": "^3.1.0",
-    "eslint-loader": "^1.5.0",
+    "eslint-loader": "^1.6.2",
     "eslint-plugin-react": "^6.0.0",
     "exports-loader": "^0.6.2",
     "extract-text-webpack-plugin": "^1.0.1",
