@@ -42,7 +42,7 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "bootstrap-webpack": "gowravshekar/bootstrap-webpack#9c155357d6f5049c86bce517b12053ae6935c7fb",
-    "css-loader": "^0.23.1",
+    "css-loader": "^0.26.4",
     "eslint": "^3.1.0",
     "eslint-loader": "^1.5.0",
     "eslint-plugin-react": "^6.0.0",
