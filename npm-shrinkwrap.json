@@ -8619,7 +8619,7 @@
                       "dependencies": {
                         "number-is-nan": {
                           "version": "1.0.0",
-                          "resolved": "http://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.0.tgz",
+                          "resolved": "https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.0.tgz",
                           "integrity": "sha1-wCD1KcUoKt/dIz2R1LGBw9aG3Es="
                         }
                       }
@@ -9313,11 +9313,6 @@
               "version": "0.10.31",
               "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz",
               "integrity": "sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ="
-            },
-            "stringstream": {
-              "version": "0.0.5",
-              "resolved": "https://registry.npmjs.org/stringstream/-/stringstream-0.0.5.tgz",
-              "integrity": "sha1-TkhM1N5aC7vuGORjB3EKioFiGHg="
             },
             "tough-cookie": {
               "version": "2.2.2",
@@ -12210,9 +12205,7 @@
     "stringstream": {
       "version": "0.0.6",
       "resolved": "https://registry.npmjs.org/stringstream/-/stringstream-0.0.6.tgz",
-      "integrity": "sha512-87GEBAkegbBcweToUrdzf3eLhWNg06FJTebl4BVJz/JgWy8CvEr9dRtX5qWphiynMSQlxxi+QqN0z5T32SLlhA==",
-      "dev": true,
-      "optional": true
+      "integrity": "sha512-87GEBAkegbBcweToUrdzf3eLhWNg06FJTebl4BVJz/JgWy8CvEr9dRtX5qWphiynMSQlxxi+QqN0z5T32SLlhA=="
     },
     "strip-ansi": {
       "version": "4.0.0",
