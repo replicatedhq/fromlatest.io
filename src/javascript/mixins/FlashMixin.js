@@ -1,57 +1,47 @@
-var _ = require('lodash');
-var React = require('react'); //eslint-disable-line no-unused-vars
-var ReactBootstrap = require('react-bootstrap');
-
-var Alert = ReactBootstrap.Alert;
+import React from 'react';
+import ReactBootstrap from 'react-bootstrap';
+import * as _ from 'lodash';
+import Alert from 'react-bootstrap/Alert';
 
 var FlashActions = require('actions/FlashActions');
 var FlashStore = require('stores/FlashStore');
 
-var FlashMessage = React.createClass({
-  render: function() {
-    return (
-      <Alert bsStyle={this.props.severity} {...this.props}>
-        {this.props.message}
-      </Alert>
-    );
-  }
-});
 
-var FlashMixin = {
-  componentWillMount: function() {
+export default class FlashMixin extends React.Component {
+  componentWillMount() {
     this.state.flashes = [];
-  },
+  }
 
-  componentDidMount: function() {
-    this.flashStoreUnsubscribe = FlashStore.listen(function(flashes) {
+  componentDidMount() {
+    this.flashStoreUnsubscribe = FlashStore.listen(function (flashes) {
       var nextState = this.state;
-      _.each(flashes, function(flash) {
+      _.each(flashes, function (flash) {
         nextState.flashes.push(flash);
       });
       this.setState(nextState);
       FlashActions.clear();
     }.bind(this));
-  },
+  }
 
-  componentWillUnmount: function() {
+  componentWillUnmount() {
     this.flashStoreUnsubscribe();
-  },
+  }
 
-  handleFlashClose: function(flash) {
+  handleFlashClose = (flash) => {
     var nextState = this.state;
-    nextState.flashes = _.filter(nextState.flashes, function(item) {
+    nextState.flashes = _.filter(nextState.flashes, function (item) {
       return item !== flash;
     });
     this.setState(nextState);
-  },
+  }
 
-  clearFlash: function() {
-    this.setState({flashes: []});
-  },
+  clearFlash = () => {
+    this.setState({ flashes: [] });
+  }
 
-  getFlash: function() {
+  getFlash = () => {
     if (this.state.flashes && this.state.flashes.length) {
-      return _.map(this.state.flashes, function(flash, i) {
+      return _.map(this.state.flashes, function (flash, i) {
         return (
           <FlashMessage
             key={i}
@@ -63,6 +53,14 @@ var FlashMixin = {
     }
     return null;
   }
-};
 
-module.exports = FlashMixin;
+
+
+  render() {
+    return (
+      <Alert bsstyle={this.props.severity} {...this.props}>
+        {this.props.message}
+      </Alert>
+    );
+  }
+}

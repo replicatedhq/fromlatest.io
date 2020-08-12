@@ -1,13 +1,14 @@
-var _ = require('lodash');
-var React = require('react');
-var ReactBootstrap = require('react-bootstrap');
+import React from 'react';
+import Input from 'react-bootstrap/Input';
+import PropTypes from 'prop-types';
+import * as _ from 'lodash';
 
-var Input = React.createClass({
-  propTypes: {
-    name: React.PropTypes.string.isRequired
-  },
+export default class Input extends React.Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired
+  };
 
-  getValue: function() {
+  getValue = () => {
     var node = this.refs.input;
     if (node.isCheckboxOrRadio()) {
       return node.getChecked();
@@ -15,24 +16,22 @@ var Input = React.createClass({
       return node.getValue();
     }
     // TODO: select
-  },
+  }
 
-  handleOnChange: function() {
+  handleOnChange = () => {
     if (this.props.onChange) {
       this.props.onChange(this.props.name, this.getValue());
     }
-  },
+  }
 
-  render: function() {
+  render(){
     var props = _.omit(this.props, 'autoComplete', 'onChange');
     return (
-      <ReactBootstrap.Input
+      <Input
         ref="input"
         {...props}
         autoComplete={this.props.autoComplete || 'off'}
         onChange={this.handleOnChange} />
     );
   }
-});
-
-module.exports = Input;
+}

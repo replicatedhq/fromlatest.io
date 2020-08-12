@@ -16,6 +16,7 @@
     "strict": [2, "never"],
     "indent": [2, 2],
     "no-shadow": [1],
-    "no-debugger": [1]
+    "no-debugger": [1],
+    "react/prop-types": [0, { "skipUndeclared": true }]
   }
 }
