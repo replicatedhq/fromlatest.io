@@ -49,7 +49,7 @@ export default class AnalysisItem extends React.Component{
               <h4 className="desc"><strong>Line {this.props.item.line}:</strong> {this.props.item.title} ({this.props.item.category})</h4>
             </div>
             <div className="col-md-2" style={{textAlign: 'right'}}>
-            <Button bsStyle="link" style={{fontSize: '12px', color: '#fff', margin: '4px 0px 0px'}} onClick={this.onCollapse}>
+            <Button bsstyle="link" style={{fontSize: '12px', color: '#fff', margin: '4px 0px 0px'}} onClick={this.onCollapse}>
               <i className="fa fa-chevron-up" />
             </Button>
             </div>
@@ -65,7 +65,7 @@ export default class AnalysisItem extends React.Component{
               <h4 className="desc"><strong>Line {this.props.item.line}:</strong> {this.props.item.title} ({this.props.item.category})</h4>
             </div>
             <div className="col-md-2" style={{textAlign: 'right'}}>
-              <Button bsStyle="link" style={{fontSize: '12px', color: '#fff', margin: '4px 0px 0px'}} onClick={this.onExpand}>
+              <Button bsstyle="link" style={{fontSize: '12px', color: '#fff', margin: '4px 0px 0px'}} onClick={this.onExpand}>
                 <i className="fa fa-chevron-down" />
               </Button>
             </div>

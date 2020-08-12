@@ -47,7 +47,7 @@ var FormMixin = {
         return <p key={i}>{error}</p>;
       });
       return (
-        <Alert bsStyle="danger">
+        <Alert bsstyle="danger">
           {nodeErrors}
         </Alert>
       );
