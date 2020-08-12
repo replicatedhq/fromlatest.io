@@ -4,9 +4,6 @@ This is a client javascript site to review and analyze a Dockerfile for common m
 
 ## Installation
 ```bash
-sudo apt-get update
-curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
-sudo apt-get install build-essential nodejs
 sudo npm install -g grunt-cli babel
 npm install
 ```
