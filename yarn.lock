@@ -75,6 +75,11 @@ accepts@~1.3.3:
     mime-types "~2.1.11"
     negotiator "0.6.1"
 
+ace-builds@^1.4.6:
+  version "1.4.12"
+  resolved "https://registry.yarnpkg.com/ace-builds/-/ace-builds-1.4.12.tgz#888efa386e36f4345f40b5233fcc4fe4c588fae7"
+  integrity sha512-G+chJctFPiiLGvs3+/Mly3apXTcfgE45dT5yp12BcWZ1kUs+gm0qd3/fv4gsz6fVag4mM0moHVpjHDIgph6Psg==
+
 acorn-jsx@^3.0.0, acorn-jsx@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-3.0.1.tgz#afdf9488fb1ecefc8348f6fb22f464e32a58b36b"
@@ -1030,13 +1035,6 @@ brace@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/brace/-/brace-0.8.0.tgz#e826c6d5054cae5f607ad7b1c81236dd2cf01978"
   integrity sha1-6CbG1QVMrl9getexyBI23SzwGXg=
-  dependencies:
-    w3c-blob "0.0.1"
-
-brace@^0.9.1:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/brace/-/brace-0.9.1.tgz#19dcbae2faec9a9920a0452ec64d8d84df45e7b6"
-  integrity sha1-Gdy64vrsmpkgoEUuxk2NhN9F57Y=
   dependencies:
     w3c-blob "0.0.1"
 
@@ -2008,6 +2006,11 @@ dezalgo@^1.0.0, dezalgo@^1.0.1, dezalgo@~1.0.3:
   dependencies:
     asap "^2.0.0"
     wrappy "1"
+
+diff-match-patch@^1.0.4:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/diff-match-patch/-/diff-match-patch-1.0.5.tgz#abb584d5f10cd1196dfc55aa03701592ae3f7b37"
+  integrity sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==
 
 diffie-hellman@^5.0.0:
   version "5.0.2"
@@ -3956,7 +3959,7 @@ lodash.flatten@^4.2.0:
   resolved "https://registry.yarnpkg.com/lodash.flatten/-/lodash.flatten-4.4.0.tgz#f31c22225a9632d2bbf8e4addbef240aa765a61f"
   integrity sha1-8xwiIlqWMtK7+OSt2+8kCqdlph8=
 
-lodash.get@^4.3.0:
+lodash.get@^4.3.0, lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
   integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
@@ -3971,7 +3974,7 @@ lodash.isempty@^4.2.1:
   resolved "https://registry.yarnpkg.com/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
   integrity sha1-b4bL7di+TsmHvpqvM8loTbGzHn4=
 
-lodash.isequal@^4.1.1:
+lodash.isequal@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
   integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
@@ -5599,13 +5602,16 @@ react-ace-wrapper@^1.0.1:
     brace "^0.5.0"
     react "^0.13.2"
 
-react-ace@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/react-ace/-/react-ace-4.1.1.tgz#e61df6de714ffd25ad4ada9e22308fd636a24a62"
-  integrity sha1-5h323nFP/SWtStqeIjCP1jaiSmI=
+react-ace@^9.1.2:
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/react-ace/-/react-ace-9.1.2.tgz#4a3ad8dbd07f84fd99c26d9ec697ea3b2ef0a963"
+  integrity sha512-rzsPiGZ2/d4dmlxg0+Zo15igCnagao+TIUJCGV8RGLBr8xpKFpq5sxnTLvsE3pWPoFbMbQAXYJiZTMWEkNpRtg==
   dependencies:
-    brace "^0.9.1"
-    lodash.isequal "^4.1.1"
+    ace-builds "^1.4.6"
+    diff-match-patch "^1.0.4"
+    lodash.get "^4.4.2"
+    lodash.isequal "^4.5.0"
+    prop-types "^15.7.2"
 
 react-bootstrap@^1.3.0:
   version "1.3.0"
@@ -5932,20 +5938,20 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
-reflux-core@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/reflux-core/-/reflux-core-0.3.0.tgz#c9aa78984555296237069613f9d6b11e2dbbc74c"
-  integrity sha1-yap4mEVVKWI3BpYT+daxHi27x0w=
+reflux-core@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/reflux-core/-/reflux-core-1.0.0.tgz#eb9baae2d50871324adb9312583c12e070cd61d3"
+  integrity sha1-65uq4tUIcTJK25MSWDwS4HDNYdM=
   dependencies:
     eventemitter3 "^1.1.1"
 
-reflux@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/reflux/-/reflux-0.4.1.tgz#3d2c5610f045df059383f05ca3bc374e6cb0957d"
-  integrity sha1-PSxWEPBF3wWTg/Bco7w3TmywlX0=
+reflux@^6.4.1:
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/reflux/-/reflux-6.4.1.tgz#8bbbabaff54cf1b82233d67dd2542fdad2a8d678"
+  integrity sha1-i7urr/VM8bgiM9Z90lQv2tKo1ng=
   dependencies:
     eventemitter3 "^1.1.1"
-    reflux-core "^0.3.0"
+    reflux-core "^1.0.0"
 
 regenerate@^1.2.1:
   version "1.3.2"
