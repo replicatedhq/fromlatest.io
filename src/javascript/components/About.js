@@ -11,7 +11,7 @@ export default class About extends React.Component{
           </p>
           <ul>
             <li>Writing Dockerfiles that are maintainable</li>
-            <li>Learning best practices that aren not always clearly documented</li>
+            <li>Learning best practices that are not always clearly documented</li>
             <li>Avoiding deprecated syntax</li>
             <li>Smallest possible images</li>
           </ul>
