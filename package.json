@@ -68,7 +68,7 @@
     "react-hot-loader": "^1.2.7",
     "react-validation-mixin": "^5.4.0",
     "source-map": "^0.5.6",
-    "style-loader": "^0.13.1",
+    "style-loader": "^0.18.1",
     "term.js": "0.0.7",
     "url-loader": "^0.5.6",
     "webpack": "^1.9.10",
